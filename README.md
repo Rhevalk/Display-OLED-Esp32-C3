@@ -8,11 +8,11 @@ Feature:
 - use blynk to control
   
 *Pin Configuration
-esp32-C3 --> Display OLED SSD1306 0.91 inch 128x32 pixel
-Gnd -> Gnd
-3.3V -> VCC
-SDA -> SDA
-SCK -> SCK
+- esp32-C3 --> Display OLED SSD1306 0.91 inch 128x32 pixel
+- Gnd -> Gnd
+- 3.3V -> VCC
+- SDA -> SDA
+- SCK -> SCK
 
 *Configuration
 - USB CDC On Boot: *Enable
