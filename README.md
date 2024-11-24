@@ -1,8 +1,25 @@
 # Esp32-C3 OLED Display
 
+Feature:
+- clock display
+- display weather
+- display turns off according to the clock
+- Conways Games
+- use blynk to control
+  
+*Pin Configuration
+esp32-C3 --> Display OLED SSD1306 0.91 inch 128x32 pixel
+Gnd -> Gnd
+3.3V -> VCC
+SDA -> SDA
+SCK -> SCK
+
 *Configuration
 - USB CDC On Boot: *Enable
 - Upload Speed: 921600 or 115200
+
+Example of openweathermap weather API:
+"https://api.openweathermap.org/data/2.5/weather?lat=-6.268895&lon=106.875129&appid=4997ec727dd6b0fbf3246663f400abc1"
   
 setTextSize(1):
 - Hight: 8 pixels
