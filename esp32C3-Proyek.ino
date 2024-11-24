@@ -1,33 +1,6 @@
-/* ==============================================================================
-Read me
-
-- USB CDC On Boot : *Enable
-
-(setTextSize(1)):
-Tinggi: 8 piksel
-Lebar: 6 piksel per karakter (tergantung karakter yang ditampilkan)
-
-(setTextSize(2)):
-Tinggi: 16 piksel (2 kali tinggi ukuran teks 1)
-Lebar: 12 piksel per karakter (tergantung pada karakter)
-
-Satuan em
-horizontal x vertical
-
-1 em = 8 pixel
-2 em = 16 pixel
-3 em = 24 pixel
-4 em  = 32 pixel
-5 em = 40 pixel
-6 em = 48 pixel
-7 em = 56 pixel
-8 em = 64 pixel
-16 em = 128 pixel
-============================================================================== */
-
-#define BLYNK_TEMPLATE_ID "TMPL6rjyF2oiJ"
-#define BLYNK_TEMPLATE_NAME "Control"
-#define BLYNK_AUTH_TOKEN "k-nVQRiaQOetfuxm6yzoKMS5Ggicq_B1"
+#define BLYNK_TEMPLATE_ID "******"
+#define BLYNK_TEMPLATE_NAME "******"
+#define BLYNK_AUTH_TOKEN "******"
 
 #include <WiFi.h>
 #include <Wire.h>
@@ -47,9 +20,9 @@ horizontal x vertical
 // API
 const char* json;
 JSONVar myObject;
-String jsonBuffer;     // Menyimpan respons JSON dari server
-String serverPath;     // Menyimpan URL server API
-String API_keys = "https://api.openweathermap.org/data/2.5/weather?lat=-6.268895&lon=106.875129&appid=4997ec727dd6b0fbf3246663f400abc1";
+String jsonBuffer;    
+String serverPath;     
+String API_keys = "******"; // masukan api cuaca openweathermap
 
 // cuaca
 String cuaca;
@@ -62,14 +35,11 @@ int suhu, kelembapan, suhuTerasa, awan, angin;
 WiFiUDP ntpUDP;
 int jam, menit;
 char jamStr[3], menitStr[3], detikStr[3];
-NTPClient timeClient(ntpUDP, "time.google.com", 3600 * 7, 60000);  // 7 jam offset, update setiap 6 detik
+NTPClient timeClient(ntpUDP, "time.google.com", 3600 * 7, 60000);
 
 // wifi
-const char* ssid = "Banyak makan"; 
-const char* password = "rhevan1119";
-
-//const char* ssid = "Titik Akses Nirkabel"; 
-//const char* password = "DP1270HK3011gY"; 
+const char* ssid = "******"; 
+const char* password = "******";
 
 // display
 byte siklus = 0;
@@ -227,16 +197,16 @@ String httpGETRequest(const char* serverName) {
 
 void Cout(int x, int y, String text, int size) {
   display.clearDisplay(); 
-  display.setTextSize(size); // Text size
-  display.setCursor(x, y); // Set cursor to top left corner
-  display.print(text); // Display text
-  display.display(); // Update display
+  display.setTextSize(size); 
+  display.setCursor(x, y); 
+  display.print(text);
+  display.display(); 
 }
 
 void CoutVal(int x, int y, String text, int size) {
   display.setTextSize(size);
   display.setCursor(x, y);
-  display.print(text); // Tampilkan teks langsung
+  display.print(text); 
 }
 
 int em(int value) { int em = value * 8; return em; }
@@ -323,8 +293,8 @@ BLYNK_WRITE(V0) {
 
       int colonIndex = input.indexOf(":");
       if (colonIndex != -1) {
-        hourDisplayOn = input.substring(0, colonIndex).toInt(); // Ambil bagian jam
-        minuteDisplayOn = input.substring(colonIndex + 1).toInt(); // Ambil bagian menit
+        hourDisplayOn = input.substring(0, colonIndex).toInt();
+        minuteDisplayOn = input.substring(colonIndex + 1).toInt(); 
       }
     }
 
@@ -333,12 +303,12 @@ BLYNK_WRITE(V0) {
 
       int colonIndex = input.indexOf(":");
       if (colonIndex != -1) {
-        hourDisplayOff = input.substring(0, colonIndex).toInt(); // Ambil bagian jam
-        minuteDisplayOff = input.substring(colonIndex + 1).toInt(); // Ambil bagian menit
+        hourDisplayOff = input.substring(0, colonIndex).toInt();
+        minuteDisplayOff = input.substring(colonIndex + 1).toInt(); 
       }
     }
 
-    else if (input.indexOf("timeOutDisplay") != -1) { // -c timeOutDisplay 3000
+    else if (input.indexOf("timeOutDisplay") != -1) { 
       input.replace("timeOutDisplay ", "");
       intervalDisplayOut = input.toInt();
     }
@@ -353,8 +323,8 @@ BLYNK_WRITE(V0) {
 }
 
 BLYNK_WRITE(V1) {  // ganti ke conways game
-  int pinValue = param.asInt();  // Mendapatkan nilai dari tombol
-  if (pinValue == 1) {  // Jika tombol ditekan
+  int pinValue = param.asInt(); 
+  if (pinValue == 1) {  
     gameSetup();
     displayActive = true;
   } else {
@@ -363,8 +333,8 @@ BLYNK_WRITE(V1) {  // ganti ke conways game
 }
 
 BLYNK_WRITE(V2) {  // reset conway game
-  int pinValue = param.asInt();  // Mendapatkan nilai dari tombol
-  if (pinValue == 1) {  // Jika tombol ditekan
+  int pinValue = param.asInt();  
+  if (pinValue == 1) {  
     gameSetup();
   } 
 }
@@ -609,7 +579,7 @@ int countNeighbors(int x, int y) {
   int count = 0;
   for (int dy = -1; dy <= 1; dy++) {
     for (int dx = -1; dx <= 1; dx++) {
-      if (dx == 0 && dy == 0) continue; // Jangan hitung sel sendiri
+      if (dx == 0 && dy == 0) continue; // tidak hitung sel sendiri
       int nx = (x + dx + GRID_WIDTH) % GRID_WIDTH;
       int ny = (y + dy + GRID_HEIGHT) % GRID_HEIGHT;
       count += grid[ny][nx];
