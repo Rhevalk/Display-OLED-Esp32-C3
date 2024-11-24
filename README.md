@@ -19,7 +19,7 @@ Feature:
 - Upload Speed: 921600 or 115200
 
 Example of openweathermap weather API:
-"https://api.openweathermap.org/data/2.5/weather?lat=-6.268895&lon=106.875129&appid=4997ec727dd6b0fbf3246663f400abc1"
+"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={appid}"
   
 setTextSize(1):
 - Hight: 8 pixels
