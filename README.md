@@ -1,22 +1,25 @@
-- USB CDC On Boot : *Enable
+# Esp32-C3 OLED Display
 
-(setTextSize(1)):
-Tinggi: 8 piksel
-Lebar: 6 piksel per karakter (tergantung karakter yang ditampilkan)
+- USB CDC On Boot: *Enable
+- Upload Speed: 921600 or 115200
+  
+setTextSize(1):
+Hight: 8 pixels
+Width: 6 pixels per character (depending on the character displayed)
 
 (setTextSize(2)):
-Tinggi: 16 piksel (2 kali tinggi ukuran teks 1)
-Lebar: 12 piksel per karakter (tergantung pada karakter)
+Height: 16 pixels (2 times the height of text size 1)
+Width: 12 pixels per character (depending on the character)
 
-Satuan em
+Unit em
 horizontal x vertical
 
-1 em = 8 pixel
-2 em = 16 pixel
-3 em = 24 pixel
-4 em  = 32 pixel
-5 em = 40 pixel
-6 em = 48 pixel
-7 em = 56 pixel
-8 em = 64 pixel
-16 em = 128 pixel
+1 em = 8 pixels
+2 em = 16 pixels
+3 em = 24 pixels
+4 em = 32 pixels
+5 em = 40 pixels
+6 em = 48 pixels
+7 em = 56 pixels
+8 em = 64 pixels
+16 em = 128 pixels
